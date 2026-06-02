@@ -1,1 +1,12 @@
+import plotly.express as px
 
+fig = px.histogram(
+    rated,
+    x="avg_rating",
+    nbins=20,
+    title="Distribution of Average Recipe Ratings"
+)
+
+fig.show()
+
+fig.write_html("assets/avg_rating_hist.html")
