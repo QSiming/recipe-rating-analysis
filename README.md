@@ -46,11 +46,21 @@ After cleaning, the resulting dataset retained most recipes while providing mean
 
 The distribution of cooking time is heavily right-skewed. Most recipes require less than one hour to prepare, while a relatively small number require several hours.
 
-[Interactive Plot](assets/cooking_time_hist.html)
+<iframe
+  src="assets/cooking_time_hist.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>
 
 The distribution of average ratings is strongly concentrated near 5 stars. Most recipes receive high ratings, making prediction challenging because the target variable exhibits relatively little variation.
 
-[Interactive Plot](assets/avg_rating_hist.html)
+<iframe
+  src="assets/avg_rating_hist.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>     
 
 ### Bivariate Analysis
 
