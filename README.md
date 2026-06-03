@@ -65,15 +65,21 @@ The distribution of average ratings is strongly concentrated near 5 stars. Most 
 ### Bivariate Analysis
 
 A scatterplot of cooking time versus average rating shows no strong linear relationship. Ratings remain concentrated near 5 stars across nearly all cooking times.
+<iframe
+  src="assets/minutes_rating_scatter.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>    
 
 To summarize the relationship more clearly, recipes were grouped into four cooking-time categories:
 
-| Time Group | Mean Rating |
-| ---------- | ----------- |
-| 0–30 min   | 4.645       |
-| 31–60 min  | 4.607       |
-| 61–120 min | 4.627       |
-| 120+ min   | 4.591       |
+| Cooking Time Group | Average Rating | Median Rating | Number of Recipes | Missing Rate |
+|--------------------|----------------|---------------|-------------------|--------------|
+|    0–30 minutes    |     4.645      |      5.0      |     37,311        |    0.024     |
+|   31–60 minutes    |     4.607      |      5.0      |     25,416        |    0.033     |
+|   61–120 minutes   |     4.627      |      5.0      |     12,328        |    0.040     |
+|    120+ minutes    |     4.591      |      5.0      |     7,295         |    0.041     |
 
 Recipes requiring more than 120 minutes tend to have slightly lower average ratings than recipes requiring 30 minutes or less, though the difference is small.
 
@@ -97,7 +103,12 @@ Two permutation tests were performed to determine whether the missingness of `av
 
 * **Null Hypothesis:** Missingness of `avg_rating` does not depend on cooking time.
 * **Alternative Hypothesis:** Missingness of `avg_rating` depends on cooking time.
-
+<iframe
+  src="assets/permutation_test_missingness_depending_on_minutes.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>  
 Using the absolute difference in mean cooking time as the test statistic, the permutation test produced a p-value approximately equal to 0.
 
 Therefore, there is strong evidence that rating missingness depends on cooking time.
@@ -108,7 +119,12 @@ Therefore, there is strong evidence that rating missingness depends on cooking t
 * **Alternative Hypothesis:** Missingness of `avg_rating` depends on recipe name length.
 
 The permutation test produced a p-value of approximately 0.574.
-
+<iframe
+  src="assets/missingness_depending_on_name_length.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>  
 Therefore, there is insufficient evidence that rating missingness depends on recipe name length.
 
 Together, these tests suggest that missingness depends on some observed variables (such as cooking time) but not others.
@@ -145,7 +161,12 @@ Observed difference:
 * Difference: 0.052
 
 A permutation test with 1,000 simulations produced a p-value approximately equal to 0.
-
+<iframe
+  src="assets/hypothesis_test.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>  
 Therefore, the null hypothesis was rejected. There is strong statistical evidence that long recipes receive slightly lower ratings than short recipes, although the practical difference is relatively small.
 
 ---
@@ -247,7 +268,12 @@ Absolute difference in RMSE between groups.
 * RMSE (short recipes): 0.604
 * RMSE (longer recipes): 0.654
 * Difference: 0.050
-
+<iframe
+  src="assets/fairness_test.html"
+  width="100%"
+  height="500"
+  frameborder="0">
+</iframe>
 A permutation test produced a p-value of approximately 0.001.
 
 Because the p-value is below 0.05, the null hypothesis is rejected. The model performs significantly better on shorter recipes than on longer recipes, indicating that prediction accuracy differs across these groups.
